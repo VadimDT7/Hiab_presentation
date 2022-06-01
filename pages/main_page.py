@@ -15,6 +15,8 @@ class MainPage(BasePage):
     def open_finder_accessories(self):  # checking click on ProductFinderAccessories
         finder_accessories = self.driver.find_element(*MainPageLocators.FINDER_ACCESSORIES_LINK)
         finder_accessories.click()
+        accessories_button = self.driver.find_element(*MainPageLocators.ACCESSORIES_BUTTON)
+        accessories_button.click()
 
     def open_shop_link(self):  # checking shop change and clicking log HIAB
         store_link = self.driver.find_element(*MainPageLocators.STORE_LINK)
@@ -27,9 +29,9 @@ class MainPage(BasePage):
     def can_choose_language(self):  # language selection and display
         language_button = self.driver.find_element(*MainPageLocators.LANGUAGE_BUTTON)
         language_button.click()
-        choose_language = self.driver.find_element(*MainPageLocators.CHOOSE_LANGUAGE_DE)
+        choose_language = self.driver.find_element(*MainPageLocators.CHOOSE_LANGUAGE_IT)
         choose_language.click()
-        assert self.driver.find_element(*MainPageLocators.DE_ELEMENT)
+        assert self.driver.find_element(*MainPageLocators.IT_ELEMENT)
 
     # def fill_search_field(self, send_delayed_keys):  # enter text in the search field and open search page
     #     search_field = self.driver.find_element(*MainPageLocators.SEARCH_BUTTON)
@@ -89,3 +91,10 @@ class MainPage(BasePage):
         # time.sleep(3)
         element = self.driver.find_element(*MainPageLocators.HICONNECT_LOGIN_BUTTON)
         element.click()
+
+    def find_a_dealer(self):
+        contact_mega_menu = self.driver.find_element(*MainPageLocators.CONTACT_MEGA_MENU)
+        contact_mega_menu.click()
+        find_a_dealer_button = self.driver.find_element(*MainPageLocators.FIND_A_DEALER)
+        find_a_dealer_button.click()
+        assert self.is_clickable(*MainPageLocators.OUR_BRANDS)
