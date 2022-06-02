@@ -25,7 +25,7 @@ def test_user_can_open_shop(browser):
         allure.attach(browser.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType.PNG)
 
 
-@allure.description("Check the choice of Italian language on the Hiab page") # использование Алюра
+@allure.description("Check the choice of Italian language on the Hiab page")
 @allure.severity(severity_level="MAJOR")
 def test_user_can_choose_language(browser):
     link = "https://hiab.com/en"
